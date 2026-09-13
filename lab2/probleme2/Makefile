@@ -1,4 +1,4 @@
-NAME    = probleme1
+NAME    = probleme2
 CC      = gcc
 CFLAGS  = -Wall -Wextra -std=c11 -g
 LDLIBS  = -lm
@@ -6,7 +6,7 @@ LDFLAGS =
 
 # Définition des liste de fichiers
 # (SRC = liste des sources, OBJ = liste des objets, DEP = liste des fichiers de dépendance)
-SRC = main.c probleme1.c
+SRC = main.c probleme2.c
 OBJ = $(SRC:.c=.o)
 DEP = $(OBJ:.o=.d)
 
@@ -19,8 +19,8 @@ DEP = $(OBJ:.o=.d)
 all: $(NAME)
 
 # Étape d'édition de lien. Assemble tous les .o en un seul exécutable à l'aide du linker
-# ($^ :  liste des prérequis, par exemple (main.o probleme1.o))
-# ($@ : nom du fichier executable cible, par exemple "probleme1")
+# ($^ :  liste des prérequis, par exemple (main.o probleme2.o))
+# ($@ : nom du fichier executable cible, par exemple "probleme2")
 $(NAME): $(OBJ)
 	$(CC) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
