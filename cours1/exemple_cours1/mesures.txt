@@ -1,0 +1,6 @@
+2026-04-01 14:28:04 Temperature : 22  Humidite 71
+2026-04-01 14:28:14 Temperature : 23  Humidite 71
+2026-04-01 14:28:24 Temperature : 23  Humidite 72
+2026-04-01 14:28:34 Temperature : 23  Humidite 73
+2026-04-01 14:28:44 Temperature : 22  Humidite 74
+2026-04-01 14:28:54 Temperature : 21  Humidite 69
