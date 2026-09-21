@@ -1,51 +1,39 @@
 # Questions de vérification — Problème 1 (Tableaux 1D)
 
-But : vérifier que l'étudiant.e comprend son code, pas juste qu'il fonctionne.
+But : vérifier que l'étudiant.e comprend SON code (peu importe comment il/elle
+l'a écrit), pas juste qu'il fonctionne. Ces questions sont formulées pour
+s'appliquer à n'importe quelle implémentation correcte — demande à
+l'étudiant.e d'expliquer avec SES propres variables et SA propre logique.
 Piger 2-3 questions selon le temps disponible.
 
-## `somme_tableau`
+1. Que retourne ta fonction `somme_tableau` si `n = 0` ? Est-ce cohérent
+   avec ce qu'on attendrait ?
+2. Comment as-tu géré l'initialisation de l'accumulateur de somme, et
+   pourquoi c'est nécessaire ?
+3. Si plusieurs éléments du tableau partagent la valeur maximale, quel
+   indice ton `indice_max` retourne-t-il ? Pourquoi (dépend de ta condition
+   de comparaison, `>` ou `>=`) ?
+4. Que retournerait ton `indice_max` si `n = 0` ? Ce résultat est-il
+   valide/utilisable pour l'appelant ?
+5. Comment as-tu évité d'avoir un espace après le dernier élément dans
+   `afficher_tableau` ? Explique ta technique.
+6. Pourquoi tes fonctions prennent-elles `n` en paramètre plutôt que de
+   calculer la taille du tableau avec `sizeof` à l'intérieur ?
+7. Quelle est la complexité (nombre d'opérations en fonction de `n`) de
+   `somme_tableau` et `indice_max` ?
+8. As-tu testé `indice_max` ou `somme_tableau` avec un `n` négatif ou une
+   valeur invalide ? Que se passe-t-il dans ton code ?
+9. Pourquoi le `main` initialise-t-il le tableau directement dans le code
+   plutôt que de le lire depuis l'entrée standard ?
+10. Peux-tu expliquer, ligne par ligne, ce que fait ta boucle dans
+    `indice_max` ?
 
-- Que retourne la fonction si `n = 0` ? Pourquoi ?
-  *(Réponse attendue : 0, car `somme` est initialisée à 0 et la boucle ne
-  s'exécute jamais.)*
-- Que se passerait-il si on oubliait d'initialiser `somme` à 0 avant la
-  boucle ?
-  *(Comportement indéfini — la variable contiendrait une valeur aléatoire
-  résiduelle de la pile.)*
+## Points de vigilance (indépendants de l'implémentation)
 
-## `indice_max`
-
-- Pourquoi la boucle commence-t-elle à `i = 1` et non `i = 0` ?
-  *(Comparer l'élément 0 avec lui-même est inutile, on suppose déjà qu'il
-  est le max au départ.)*
-- Si deux éléments ont la même valeur maximale, lequel des deux indices est
-  retourné ? Pourquoi ?
-  *(Le premier trouvé, car la condition est `>` strict — un `>=` donnerait
-  le dernier trouvé à la place.)*
-- Que retournerait la fonction si `n = 0` ? Est-ce un résultat utilisable ?
-  *(Retournerait 0 sans jamais vérifier `tab[0]`, ce qui est trompeur/invalide
-  puisque le tableau est vide — bon point pour un.e étudiant.e à l'aise.)*
-
-## `afficher_tableau`
-
-- Pourquoi utilise-t-on `if (i > 0)` avant d'imprimer l'espace ?
-  *(Pour ne pas mettre d'espace avant le premier élément — l'énoncé
-  interdit un espace après le dernier, cette approche l'évite
-  naturellement.)*
-- Que produirait `printf("%d ", tab[i]);` sans condition, à la place de
-  l'approche actuelle ?
-  *(Un espace en trop après le dernier élément — ne respecte pas
-  l'énoncé.)*
-- Peux-tu décrire une autre façon d'obtenir le même résultat ?
-  *(Ex. boucler jusqu'à `n - 1` avec espace après chaque élément, puis
-  afficher le dernier élément séparément après la boucle.)*
-
-## `main` / général
-
-- Pourquoi le tableau contient-il deux fois la valeur `23` dans cette
-  solution ? Qu'est-ce que ça permet d'observer ?
-- Pourquoi les fonctions prennent-elles `n` en paramètre plutôt que de le
-  calculer à l'intérieur (ex. avec `sizeof`) ?
-  *(Un tableau passé en paramètre "dégénère" en pointeur — `sizeof` ne
-  donnerait plus la taille du tableau original à l'intérieur de la
-  fonction.)*
+- L'accumulateur de somme doit être initialisé à 0 — sinon comportement
+  indéfini (valeur résiduelle de la pile).
+- `indice_max` doit gérer correctement le cas d'égalité et documenter (même
+  implicitement, via le code) quel indice est retourné.
+- Un tableau passé en paramètre à une fonction "dégénère" en pointeur — un
+  `sizeof` à l'intérieur de la fonction ne donnerait pas la taille du
+  tableau original, d'où la nécessité de `n`.

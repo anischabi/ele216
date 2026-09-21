@@ -1,60 +1,37 @@
 # Questions de vérification — Problème 2 (Tableaux 2D)
 
-But : vérifier que l'étudiant.e comprend son code, pas juste qu'il fonctionne.
-Piger 2-3 questions selon le temps disponible.
+But : vérifier que l'étudiant.e comprend SON code, pas juste qu'il
+fonctionne. Piger 2-3 questions selon le temps disponible.
 
-## Signature `int mat[][5]`
+1. Que représente le `5` dans la signature `int mat[][5]` ? Pourquoi le
+   compilateur en a-t-il besoin, mais pas du nombre de lignes ?
+2. Comment as-tu géré l'alignement des colonnes dans `afficher_matrice`
+   (ex. si les nombres n'ont pas le même nombre de chiffres) ?
+3. Explique comment `sommes_lignes` calcule la somme de chaque ligne.
+   As-tu besoin d'initialiser `resultats[i]` avant la boucle ? Pourquoi
+   (pas) ?
+4. Pour `sommes_colonnes`, dois-tu initialiser `resultats[j]` à 0 avant de
+   commencer à accumuler ? Pourquoi (pas), et est-ce différent de ce que tu
+   as fait pour `sommes_lignes` ?
+5. Une colonne est-elle contiguë en mémoire dans un tableau 2D en C ?
+   Comment cela influence-t-il l'ordre de tes boucles dans
+   `sommes_colonnes` ?
+6. Pourquoi les tableaux `resultats` pour les lignes et pour les colonnes
+   n'ont pas nécessairement la même taille ?
+7. Que se passerait-il si on appelait tes fonctions avec `lignes = 0` ?
+8. Pourquoi le nombre de colonnes doit-il être connu à la compilation dans
+   la signature d'une fonction recevant un tableau 2D ?
+9. Si tu devais adapter ton code pour une matrice à 8 colonnes au lieu de
+   5, que devrais-tu changer ?
 
-- Pourquoi doit-on préciser le nombre de colonnes dans la signature
-  (`int mat[][5]`) mais pas le nombre de lignes ?
-  *(Un tableau 2D est stocké comme un seul bloc contigu en mémoire, rangé
-  ligne par ligne. Le compilateur a besoin du nombre de colonnes pour
-  calculer l'adresse de `mat[i][j]` via l'arithmétique de pointeurs. Le
-  nombre de lignes n'affecte pas ce calcul, donc il peut rester un
-  paramètre normal.)*
-- Que se passerait-il si on essayait d'écrire `int mat[][]` sans préciser de
-  nombre de colonnes ?
-  *(Erreur de compilation — le nombre de colonnes est obligatoire pour tout
-  sauf la première dimension.)*
+## Points de vigilance (indépendants de l'implémentation)
 
-## `afficher_matrice`
-
-- Pourquoi utilise-t-on `%4d` plutôt que `%d` ou `%d ` ?
-  *(Pour garder les colonnes alignées visuellement même si les nombres ont
-  un nombre de chiffres différent — largeur de champ fixe.)*
-
-## `sommes_lignes`
-
-- Pourquoi peut-on calculer la somme d'une ligne en une seule boucle simple,
-  sans initialiser `resultats[i]` à l'avance ?
-  *(On accumule dans une variable locale `somme`, puis on l'assigne une
-  seule fois à la fin — pas besoin d'initialiser `resultats[i]` séparément.)*
-
-## `sommes_colonnes` (deux versions dans le code — voir le tableau comparatif dans `probleme2.c`)
-
-- Quelle est la différence entre `sommes_colonnes` et
-  `sommes_colonnes_par_colonne` ? Donnent-elles le même résultat ?
-  *(Ordre de parcours différent — l'une est contiguë en mémoire (ligne par
-  ligne), l'autre saute de `NB_COLONNES` cases à chaque itération (colonne
-  par colonne). Même résultat dans les deux cas.)*
-- Pourquoi `sommes_colonnes` (version ligne par ligne) doit-elle initialiser
-  `resultats[j]` à 0 avant la boucle principale, contrairement à
-  `sommes_lignes` ?
-  *(Parce qu'on accumule dans `resultats[j]` au fil de plusieurs passages
-  (une ligne à la fois), plutôt que de calculer la somme complète d'une
-  colonne avant de l'assigner en une seule fois.)*
-- Une colonne est-elle contiguë en mémoire ? Pourquoi (pas) ?
-  *(Non — les éléments `mat[0][j]`, `mat[1][j]`, ... sont espacés de
-  `NB_COLONNES` cases dans le bloc mémoire contigu de la matrice.)*
-
-## `main` / général
-
-- Pourquoi `resultats_lignes` et `resultats_colonnes` n'ont-ils pas la même
-  taille ?
-  *(`resultats_lignes` a une case par ligne (taille `LIGNES`),
-  `resultats_colonnes` a une case par colonne (taille `NB_COLONNES`) — les
-  deux valeurs ne sont pas nécessairement égales.)*
-- Qu'est-ce que `NB_COLONNES` et pourquoi l'a-t-on défini avec `#define`
-  plutôt que d'écrire `5` directement partout dans le code ?
-  *(Évite de répéter un "nombre magique" à plusieurs endroits ; un seul
-  changement suffit si la taille devait changer.)*
+- Un tableau 2D en C est stocké comme un seul bloc contigu, rangé ligne par
+  ligne — le compilateur a besoin du nombre de colonnes pour calculer
+  l'adresse de `mat[i][j]` par arithmétique de pointeurs.
+- `resultats_lignes` a une case par ligne (taille `lignes`),
+  `resultats_colonnes` une case par colonne (taille fixe, 5 ici) — ce ne
+  sont pas la même taille en général.
+- Une colonne n'est PAS contiguë en mémoire (éléments espacés du nombre de
+  colonnes) — bon indicateur pour voir si l'étudiant.e comprend le layout
+  mémoire, peu importe l'ordre de boucle qu'il/elle a choisi.
