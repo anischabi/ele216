@@ -46,6 +46,8 @@ d'éléments, `_` = case sans valeur utile.
   `n` qui distingue « plein » de « vide » (où `tete == queue` aussi).
   `enfiler(99)` doit donc retourner 0.
 
+Une trace du même genre pour chacun des 18 tests est dans `TRACES_TESTS.md`.
+
 ## Le principe du buffer circulaire
 
 1. Explique avec un dessin : pour un buffer de capacité 3, où sont `tete` et

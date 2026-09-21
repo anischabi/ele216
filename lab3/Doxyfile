@@ -1,0 +1,41 @@
+# Doxyfile minimal pour le laboratoire 3 (seuls les paramètres modifiés sont
+# listés ; tous les autres gardent leur valeur par défaut).
+#
+# Génération, depuis le dossier lab3 :
+#     doxygen Doxyfile
+# Puis ouvrir doc/html/index.html dans un navigateur.
+
+PROJECT_NAME           = "ELE216 - Laboratoire 3"
+PROJECT_BRIEF          = "Modules et types opaques : pile, buffer circulaire, filtre"
+OUTPUT_LANGUAGE        = French
+INPUT_ENCODING         = UTF-8
+
+# Sortie : lab3/doc/html (ignoré par git, voir .gitignore)
+OUTPUT_DIRECTORY       = doc
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+# Fichiers documentés : l'interface (.h) et les tests unitaires (*_test.c) de
+# chaque problème. Les .c d'implémentation et Unity ne sont pas inclus.
+INPUT                  = ACCUEIL.md \
+                         probleme1/pile.h \
+                         probleme1/pile_test.c \
+                         probleme2/buffer.h \
+                         probleme2/buffer_test.c \
+                         probleme3/filtre.h \
+                         probleme3/filtre_test.c
+USE_MDFILE_AS_MAINPAGE = ACCUEIL.md
+FULL_PATH_NAMES        = NO
+
+# Code C
+OPTIMIZE_OUTPUT_FOR_C  = YES
+EXTRACT_ALL            = NO
+EXTRACT_STATIC         = YES
+
+# Affiche le code de chaque test à côté de sa description
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+
+# Signale ce qui n'est pas documenté
+WARN_IF_UNDOCUMENTED   = YES
+QUIET                  = YES
