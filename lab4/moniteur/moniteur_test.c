@@ -348,6 +348,13 @@ static void simulation(void) {
     moniteur_detruire(mon);
 }
 
+/**
+ * @brief Point d'entrée : simulation de l'énoncé (tests manuels), puis
+ * exécution des tests unitaires.
+ *
+ * La simulation (voir simulation()) affiche la charge brute, la charge lissée
+ * et l'alerte à chaque étape ; elle se vérifie à l'œil.
+ */
 int main(void) {
     printf("** Tests Manuel : simulation **\n");
     simulation();

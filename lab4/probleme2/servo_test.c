@@ -316,6 +316,14 @@ void test_servo_temps_hors_butee_min(void) {
     TEST_ASSERT_TRUE(servo_temps_pour_atteindre(s, -100.0f) < 0.0f);
 }
 
+/**
+ * @brief Point d'entrée : démonstration de servo_afficher, puis exécution des tests.
+ *
+ * La démonstration déplace un servo [0, 180] vers 45, 180, 250 et -30 degrés
+ * en affichant le temps de déplacement et l'état après chaque consigne ;
+ * servo_afficher ne se prête pas à une vérification automatique, on la
+ * regarde à l'œil.
+ */
 int main(void) {
     printf("** Demonstration de servo_afficher **\n");
     servo_t *demo = servo_creer(0.0f, 180.0f, 90.0f);

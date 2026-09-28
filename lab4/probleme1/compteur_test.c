@@ -250,6 +250,13 @@ void test_compteur_reinitialiser_compteur_neuf(void) {
     TEST_ASSERT_EQUAL_INT(0, compteur_depassements(c));
 }
 
+/**
+ * @brief Point d'entrée : démonstration de compteur_afficher, puis exécution des tests.
+ *
+ * La démonstration affiche un compteur de seuil 3 après chacun de 7
+ * incréments, puis après une réinitialisation ; compteur_afficher ne se
+ * prête pas à une vérification automatique, on la regarde à l'œil.
+ */
 int main(void) {
     printf("** Demonstration de compteur_afficher **\n");
     compteur_t *demo = compteur_creer(3);
