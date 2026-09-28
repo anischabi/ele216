@@ -19,6 +19,7 @@ void test_pile_gen_creer_valide(void) {
     TEST_ASSERT_NOT_NULL(p1);
     TEST_ASSERT_TRUE(pile_gen_est_vide(p1));
     TEST_ASSERT_EQUAL(0, pile_gen_taille(p1));
+    // p1 doit etre libere pour eviter une fuite de memoire
 }
 
 void test_pile_gen_empiler(void) {

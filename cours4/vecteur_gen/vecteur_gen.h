@@ -50,7 +50,7 @@ void *vecteur_retirer_dernier(vecteur_t *vect);
  * @brief Retire et retourne le premier element du vecteur.
  * 
  * @param vect pointeur non-nul vers le tableau dynamique.
- * @return void * un pointeur vers le dernier élément.
+ * @return void * un pointeur vers le premier élément.
  */
 void *vecteur_retirer_premier(vecteur_t *vect);
 

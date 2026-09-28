@@ -19,6 +19,7 @@ void test_file_gen_creer_valide(void) {
     TEST_ASSERT_NOT_NULL(f1);
     TEST_ASSERT_TRUE(file_gen_est_vide(f1));
     TEST_ASSERT_EQUAL(0, file_gen_taille(f1));
+    // f1 doit etre libere pour eviter une fuite de memoire
 }
 
 void test_file_gen_enfiler(void) {

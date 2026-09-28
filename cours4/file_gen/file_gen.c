@@ -13,7 +13,11 @@ file_gen_t *file_gen_creer() {
     if (!f) { return NULL; }
 
     f->vect = vecteur_creer(4);
-    if(!f->vect) {return NULL; }
+    if(!f->vect) {
+        // Si vecteur_creer échoue, f n'est pas libéré. 
+        //Il faudrait ajouter free(f) ici pour éviter une fuite de mémoire.
+        return NULL; 
+    }     
     return f;
 }
 
@@ -26,6 +30,7 @@ void file_gen_liberer(file_gen_t *f) {
 void file_gen_enfiler(file_gen_t *f, void *element) {
     assert(f);
     assert(element);
+    // resultat de vecteur_ajouter est ignoré. Il faudrait vérifier si l'ajout a réussi.
     vecteur_ajouter(f->vect, element);
 }
 

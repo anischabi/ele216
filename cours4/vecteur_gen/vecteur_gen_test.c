@@ -19,6 +19,7 @@ void test_vecteur_creer_valide(void) {
     TEST_ASSERT_EQUAL(16, vecteur_capacite(v1));
     TEST_ASSERT_EQUAL(0, vecteur_taille(v1));
     TEST_ASSERT_TRUE(vecteur_est_vide(v1));
+    // v1 doit etre libere pour eviter une fuite de memoire
 }
 
 void test_vecteur_creer_taille_zero(void) {

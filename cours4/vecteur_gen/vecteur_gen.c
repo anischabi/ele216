@@ -69,12 +69,16 @@ void *vecteur_obtenir(vecteur_t *vect, int position) {
 }
 
 void *vecteur_retirer_dernier(vecteur_t *vect) {
+    // si le vecteur est vide, la taille devient -1 et la fonction lit hors du tableau. 
+    //Il manque assert(vect->taille > 0).
     assert(vect != NULL);
     vect->taille--;
     return vect->contenu[vect->taille];
 }
 
 void *vecteur_retirer_premier(vecteur_t *vect) {
+    // si le vecteur est vide, la taille devient -1 et la fonction lit hors du tableau. 
+    //Il manque assert(vect->taille > 0).
     assert(vect != NULL);
     void *premier = vect->contenu[0];
     vect->taille--;

@@ -13,7 +13,11 @@ pile_gen_t *pile_gen_creer() {
     if (!p) { return NULL; }
 
     p->vect = vecteur_creer(4);
-    if(!p->vect) {return NULL; }
+    if(!p->vect) {
+        // Si vecteur_creer échoue, p n'est pas libéré. 
+        //Il faudrait ajouter free(p) ici pour éviter une fuite de mémoire.
+        return NULL; 
+    } 
     return p;
 }
 
@@ -26,6 +30,7 @@ void pile_gen_liberer(pile_gen_t *p) {
 void pile_gen_empiler(pile_gen_t *p, void *element) {
     assert(p);
     assert(element);
+    // resultat de vecteur_ajouter est ignoré. Il faudrait vérifier si l'ajout a réussi.
     vecteur_ajouter(p->vect, element);
 }
 
