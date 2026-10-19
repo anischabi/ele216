@@ -1,0 +1,20 @@
+Processus : proc3, Temps restant : 5
+Processus : proc3, Temps restant : 0
+Processus : proc1, Temps restant : 60
+Processus : proc2, Temps restant : 40
+Processus : proc6, Temps restant : 0
+Processus : proc1, Temps restant : 40
+Processus : proc2, Temps restant : 20
+Processus : proc5, Temps restant : 100
+Processus : proc1, Temps restant : 20
+Processus : proc2, Temps restant : 0
+Processus : proc5, Temps restant : 80
+Processus : proc1, Temps restant : 0
+Processus : proc5, Temps restant : 60
+Processus : proc8, Temps restant : 0
+Processus : proc5, Temps restant : 40
+Processus : proc5, Temps restant : 20
+Processus : proc5, Temps restant : 0
+Processus : proc4, Temps restant : 50
+Processus : proc7, Temps restant : 60
+Simulation terminée

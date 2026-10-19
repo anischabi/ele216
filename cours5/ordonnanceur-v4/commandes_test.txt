@@ -1,0 +1,13 @@
+add proc1 80 2
+add proc2 60 2
+add proc3 25 1
+add proc4 70 3
+run 80
+add proc5 120 2
+add proc6 10 0
+run 60
+add proc7 80 3
+run 120
+add proc8 15 1
+run 120
+quit
